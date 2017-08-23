@@ -1,0 +1,23 @@
+<form class="" action="/" method="post">
+  <input type="text" name="name" value="" placeholder="name">
+  <input type="text" name="company" value="" placeholder="company">
+  <input type="text" name="weight" value="" placeholder="weight">
+  <input type="text" name="flavors" value ="" placholder="flavors">
+  <input type="text" name="color" value=""placeholder= "color">
+  <button type="submit" name="button">button</button>
+
+</form>
+
+
+
+
+{{#candy}}
+<hr>
+{{name}}
+{{company}}
+{{weight}}
+{{flavor}}
+<form class="" action="/{{_id}}" method="post">
+
+</form>
+{{/candy}}
