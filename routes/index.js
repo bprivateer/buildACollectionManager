@@ -7,18 +7,22 @@ let data = [];
 
 router.get('/', function(req, res){
 
-  Candy.create({
-    name: "Three Muskateers",
-    company: "Nestle",
-    weight: 6,
-    flavors:[ {
-        color: "brown",
-        flavor: "chocolate"
-      }]
-  })
-  .then(function(data){
-    console.log(data);
-  })
+Candy.find({}).then(function(candies){
+  console.log(candies);
+    res.render("view", {candyInfo: candies})
+})
+  // Candy.create({
+  //   name: "Three Muskateers",
+  //   company: "Nestle",
+  //   weight: 6,
+  //   flavors:[ {
+  //       color: "brown",
+  //       flavor: "chocolate"
+  //     }]
+  // })
+  // .then(function(data){
+  //   console.log(data);
+  // })
 
 //   let getData = function(db) {
 //   let candies = db.collection('candies');
@@ -30,9 +34,6 @@ router.get('/', function(req, res){
 
 console.log("data", data);
 
-
-  console.log("hello");
-  res.render("view")
 });
 
 router.post('/', function(req, res){
@@ -57,5 +58,10 @@ router.post('/', function(req, res){
     });
   };
 });
+
+router.post('/:id', function(req, res){
+  let id= req.params.id;
+
+})
 console.log(data);
 module.exports = router;
