@@ -4,12 +4,14 @@ const router = express.Router();
 const Candy = require('../models/index');
 
 let data = [];
-
+let getCandy;
 router.get('/', function(req, res){
 
-Candy.find({}).then(function(candies){
-  console.log(candies);
-    res.render("view", {candyInfo: candies})
+  Candy.find({}).then(function(candies){
+    console.log(candies);
+
+
+res.render("view", {candyInfo: candies})
 })
   // Candy.create({
   //   name: "Three Muskateers",
@@ -23,7 +25,7 @@ Candy.find({}).then(function(candies){
   // .then(function(data){
   //   console.log(data);
   // })
-
+//
 //   let getData = function(db) {
 //   let candies = db.collection('candies');
 //
@@ -32,11 +34,11 @@ Candy.find({}).then(function(candies){
 //   });
 // };
 
-console.log("data", data);
+console.log("dataaaaaaaa!!!!!", data);
 
 });
 
-router.post('/', function(req, res){
+router.post('/create', function(req, res){
   Candy.create({
     name: req.body.name,
     company: req.body.company,
@@ -53,15 +55,26 @@ router.post('/', function(req, res){
     let getData = function(db) {
     let candies = db.collection('candies');
 
-   users.find({}).toArray().then(function(candies) {
+    users.find({}).toArray().then(function(candies) {
       data = candies;
+
     });
   };
 });
 
-router.post('/:id', function(req, res){
-  let id= req.params.id;
+// router.post('/:id', function(req, res){
+//   let id= req.params.id;
+//
+// })
+//
+router.post('/delete/:id', function(req, res){
+  let reqId = req.params.id;
+  let newId = reqId.substr(1);
+  console.log('REQID:', reqId);
+  console.log('NEWID', newId);
+  Candy.remove({_id: newId})
 
+  res.redirect('/')
 })
 console.log(data);
 module.exports = router;

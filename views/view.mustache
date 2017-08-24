@@ -2,7 +2,7 @@
   <input type="text" name="name" value="" placeholder="name">
   <input type="text" name="company" value="" placeholder="company">
   <input type="text" name="weight" value="" placeholder="weight">
-  <input type="text" name="flavors" value ="" placholder="flavors">
+  <input type="text" name="flavor" value ="" placholder="flavor">
   <input type="text" name="color" value=""placeholder= "color">
   <button type="submit" name="button">button</button>
 
@@ -11,14 +11,24 @@
 
 
 
+
+
 {{#candyInfo}}
-<hr>
+<div id="{{id}}"><hr>
+<form class="" action="/delete/{{id}}" method="post">
+  <button type="button" name="button">delete</button>
+
+</form>
 {{name}}
 {{company}}
 {{weight}}
-{{flavors}}
+{{#flavors}}
+{{flavor}}
 {{color}}
+{{/flavors}}
+<!--
 <form class="" action="/{{_id}}" method="post">
 
-</form>
+</form> -->
+</div>
 {{/candyInfo}}
