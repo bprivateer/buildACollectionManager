@@ -62,19 +62,23 @@ router.post('/create', function(req, res){
   };
 });
 
-// router.post('/:id', function(req, res){
+// router.post('/edit/:id', function(req, res){
 //   let id= req.params.id;
 //
 // })
 //
-router.post('/delete/:id', function(req, res){
-  let reqId = req.params.id;
-  let newId = reqId.substr(1);
-  console.log('REQID:', reqId);
-  console.log('NEWID', newId);
-  Candy.remove({_id: newId})
+router.post('/delete', function(req, res){
+  let nameC = req.body.btn;
+  console.log(nameC);
+
+  Candy.deleteOne({_id:nameC})
+  .then(function(data){
+    console.log('Deleted!');
+    res.redirect('/')
+  })
+  console.log(nameC);
+
 
   res.redirect('/')
 })
-console.log(data);
 module.exports = router;

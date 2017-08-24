@@ -1,9 +1,11 @@
-<form class="" action="/" method="post">
+<h1>Make your new candy type!</h1>
+
+<form class="" action="/create" method="post">
   <input type="text" name="name" value="" placeholder="name">
   <input type="text" name="company" value="" placeholder="company">
   <input type="text" name="weight" value="" placeholder="weight">
   <input type="text" name="flavor" value ="" placholder="flavor">
-  <input type="text" name="color" value=""placeholder= "color">
+  <input type="text" name="color" value="" placeholder= "color">
   <button type="submit" name="button">button</button>
 
 </form>
@@ -14,10 +16,12 @@
 
 
 {{#candyInfo}}
-<div id="{{id}}"><hr>
-<form class="" action="/delete/{{id}}" method="post">
-  <button type="button" name="button">delete</button>
-
+<div><hr>
+<form action="/delete" method="post">
+  <button type="submit" name="btn" value="{{_id}}">Delete</button>
+</form>
+<form class="" action="/edit/:_id" method="post">
+  <button type="button" name="button">Edit</button>
 </form>
 {{name}}
 {{company}}
