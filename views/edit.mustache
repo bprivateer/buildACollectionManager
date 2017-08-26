@@ -1,11 +1,16 @@
-<h1>Put in your type of Candy!</h1>
-
-<form class="" action="/create" method="post">
+<form class="" action="/edit/{{_id}}" method="post">
+  name of candy
   <input type="text" name="name" value="" placeholder="name">
+  company
   <input type="text" name="company" value="" placeholder="company">
+  Weight in grams
+  
   <input type="text" name="weight" value="" placeholder="grams">
+  The flavor
   <input type="text" name="flavor" value ="" placholder="flavor">
+  The color
   <input type="text" name="color" value="" placeholder= "color">
+  What type of Candy?
   <select class="" name="type">
     <option value="sour">Sour</option>
     <option value="chocolate">Chocolate</option>
@@ -13,31 +18,6 @@
     <option value="gum">Gum</option>
     <option value="gummy">Gummy</option>
   </select>
-  <button type="submit" name="button">Create a candy!</button>
+  <button type="submit" name="button">Edit this candy!</button>
 
 </form>
-
-
-
-
-
-
-{{#candyInfo}}
-<div><hr>
-<form action="/delete" method="post">
-  <button type="submit" name="btn" value="{{_id}}">Delete</button>
-</form>
-<a href="/edit/{{_id}}">Edit</a>
-{{name}}
-{{company}}
-{{weight}}
-{{#flavors}}
-{{flavor}}
-{{color}}
-{{/flavors}}
-<!--
-<form class="" action="/{{_id}}" method="post">
-
-</form> -->
-</div>
-{{/candyInfo}}
